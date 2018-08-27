@@ -12,15 +12,30 @@ object gimenez {
 }
 
 object baigorria {
-	var cantidadEmpanadasVendidas = 100
+	var cantidadEmpanadasVendidas = 1000
+	
 	var montoPorEmpanada = 15
+	
 	var deuda = 0
+	
 	var dinero = 0
+	
 	method venderEmpanada() {
 		cantidadEmpanadasVendidas += 1
 	}
+	
 	method sueldo() {return cantidadEmpanadasVendidas * montoPorEmpanada}
-	method cobrarSueldo(){}
+	
+	method cobrarSueldo(){
+		
+		if(deuda<self.sueldo()){
+			dinero=self.sueldo()-deuda
+			deuda=0
+			}
+		
+		else{deuda-=self.sueldo()}	
+		}
+	
 	method gastar(cuanto){
 		if(dinero < cuanto )
 		 {deuda+= cuanto-dinero

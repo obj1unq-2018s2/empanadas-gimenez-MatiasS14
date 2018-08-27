@@ -1,0 +1,30 @@
+import empleados.*
+
+describe "Baigorria"{
+
+test "Baigorria compra deuda" {
+    baigorria.gastar(4000)
+	assert.equals(4000,baigorria.totalDeuda())
+	assert.equals(0,baigorria.totalDinero())
+	baigorria.gastar(8000)
+	assert.equals(12000,baigorria.totalDeuda())
+	assert.equals(0,baigorria.totalDinero())
+	  
+}
+
+test "Baigorria cobra y paga deudas"{
+	baigorria.gastar(12000)
+	baigorria.cobrarSueldo()
+	assert.equals(3000,baigorria.totalDinero())
+    assert.equals(0,baigorria.totalDeuda())
+   }
+
+test "Baigorria gasta mucho mas"{
+    baigorria.gastar(12000)
+	baigorria.cobrarSueldo()
+	baigorria.gastar(25000)
+    assert.equals(0,baigorria.totalDinero())
+    assert.equals(22000,baigorria.totalDeuda())
+}
+
+}
